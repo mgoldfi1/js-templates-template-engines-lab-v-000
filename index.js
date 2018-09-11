@@ -1,3 +1,8 @@
 function createPost() {
 
 }
+
+
+function postcomment() {
+  
+}
