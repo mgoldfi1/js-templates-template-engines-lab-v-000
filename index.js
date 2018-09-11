@@ -3,6 +3,6 @@ function createPost() {
 }
 
 
-function postcomment() {
+function postComment() {
 
 }
