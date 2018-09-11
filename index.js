@@ -15,6 +15,7 @@ function createPost() {
 
     document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
     postsDiv.innerHTML += templateHTML;
+    postsDiv.getElementsByTagName("footer")[0].innerHTML += comment()
 
 
 }
