@@ -3,6 +3,8 @@ function createPost() {
     var author = document.getElementById("author").value
     var body = document.getElementById("body").value
     var postTemplate = document.getElementById("post-template").innerHTML
+    var commentsTemplate = document.getElementById("comments-template").innerHTML
+
     var pgTemplate = document.getElementById("page-template").innerHTML
     var post = _.template(postTemplate)
     var pageTemplate = _.template(pgTemplate)
