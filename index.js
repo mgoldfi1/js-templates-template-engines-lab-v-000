@@ -8,6 +8,7 @@ function createPost() {
     var pageTemplate = _.template(pgTemplate)
     var postsDiv = document.getElementById("post-template");
     var templateHTML = post({ 'title': title, 'author': author });
+
     document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
     postsDiv.innerHTML += templateHTML;
 
