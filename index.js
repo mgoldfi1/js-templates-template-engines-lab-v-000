@@ -10,7 +10,7 @@ function createPost() {
     var templateHTML = post({ 'title': title, 'author': author });
     document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
     postsDiv.innerHTML += templateHTML;
-    post(templateHTML)
+
 
 }
 
