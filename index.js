@@ -7,6 +7,8 @@ function createPost() {
 
     var pgTemplate = document.getElementById("page-template").innerHTML
     var post = _.template(postTemplate)
+    var comment = _.template(commentsTemplate)
+
     var pageTemplate = _.template(pgTemplate)
     var postsDiv = document.getElementById("post");
     var templateHTML = post({ 'title': title, 'author': author });
