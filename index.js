@@ -1,26 +1,30 @@
 function createPost() {
-    var title = document.getElementById("title").value
-    var author = document.getElementById("author").value
-    var body = document.getElementById("body").value
-    var postTemplate = document.getElementById("post-template").innerHTML
-    var commentsTemplate = document.getElementById("comments-template").innerHTML
+  // create template functions
+  var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
-    var pgTemplate = document.getElementById("page-template").innerHTML
-    var post = _.template(postTemplate)
-    var comment = _.template(commentsTemplate)
+  // get blog values
+  var postTitle = document.getElementById("postTitle").value;
+  var postAuthor = document.getElementById("postAuthor").value;
+  var post = document.getElementById("postBody").value;
 
-    var pageTemplate = _.template(pgTemplate)
-    var postsDiv = document.getElementById("post");
-    var templateHTML = post({ 'title': title, 'author': author });
+  document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
 
-    document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
-    postsDiv.innerHTML += templateHTML;
-    postsDiv.getElementsByTagName("footer")[0].innerHTML += comment()
+  var blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
+  var commentsSection = commentsTemplate();
+  var postElement = document.getElementById("post");
 
-
+  postElement.innerHTML = blogSection;
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
 }
 
-
 function postComment() {
+  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
+  var commentText = document.getElementById("commentText").value;
+  var commenterName = document.getElementById("commenter").value;
+
+  var commentsSection = document.getElementById("comments");
+  commentsSection.innerHTML += commentTemplate({ 'commenter': commenterName, 'comment': commentText });
 }
